@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zhbit.studentmanage.domain.Student" table="t_student">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" type ="string" length="12"/>
+		<property name="age"/>
+		<property name="sex">
+			<column name="sex" not-null="true" length="6" />
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.zhbit.studentmanage.domain.SexEnum</param>
+				<param name="useNamed">true</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+	</class>
+</hibernate-mapping>
